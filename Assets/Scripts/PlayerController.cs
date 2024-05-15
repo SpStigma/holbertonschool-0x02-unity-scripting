@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 	public float speed;
 	private Rigidbody rb;
 	private int score;
+	public int health = 5;
 
 	void Start()
 	{
@@ -30,7 +31,13 @@ public class PlayerController : MonoBehaviour
 			score += 1;
 			Debug.Log("score: " + score);
 			Destroy(other.gameObject);
-			
+
+		}
+
+		if (other.CompareTag("Trap"))
+		{
+			health -= 1;
+			Debug.Log("Health: " + health);
 		}
 	}
 }
